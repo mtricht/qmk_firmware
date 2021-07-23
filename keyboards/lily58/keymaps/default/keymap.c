@@ -23,10 +23,10 @@ extern uint8_t is_master;
 
 enum layers {
     _QWERTY,
+    _WOW,
     _LOWER,
     _RAISE,
     _ADJUST,
-    _WOW,
 };
 
 #define RAISE MO(_RAISE)
