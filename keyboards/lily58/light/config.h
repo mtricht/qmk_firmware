@@ -40,12 +40,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEBOUNCE 5
 
 #define SOFT_SERIAL_PIN D2
-
+// Doesnt compile without following line:
 #define RGB_DI_PIN D3
-#define RGBLED_SPLIT { 35, 35 }
-#define RGBLED_NUM 70
-#define RGBLIGHT_SPLIT
-#define RGBLIGHT_LIMIT_VAL 120
+#ifdef RGB_MATRIX_ENABLE
+#    define DRIVER_LED_TOTAL RGBLED_NUM
+#    define RGBLED_NUM 58  // Number of LEDs
+#    define RGB_MATRIX_SPLIT { 29, 29 }  	// (Optional) For split keyboards, the number of LEDs connected on each half. X = left, Y = Right.
+#    define SPLIT_TRANSPORT_MIRROR  // If RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is enabled, you also will want to enable SPLIT_TRANSPORT_MIRROR
+#endif
+
+
+#ifdef RGBLIGHT_ENABLE
+#   define RGBLED_NUM 58  // Total number of LEDs
+#   define RGBLED_SPLIT { 29, 29 } // LEDs per side
+#   define RGBLIGHT_SPLIT
+#endif
 
 #define ENCODERS_PAD_A { F4 }
 #define ENCODERS_PAD_B { F5 }
