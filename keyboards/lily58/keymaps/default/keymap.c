@@ -245,7 +245,7 @@ void render_keylogger_status(void) {
 void render_default_layer_state(void) {
     oled_write_P(PSTR("Layer"), false);
     oled_write_P(PSTR(" "), false);
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state|default_layer_state)) {
         case _QWERTY:
             oled_write_P(PSTR("QRTY"), false);
             break;
